@@ -1,15 +1,24 @@
-import org.w3c.dom.css.Rect;
-
 public class Main {
     public static void main(String[] args) {
-        Rectangle r0 = new Rectangle(3,4, "First");
-        Rectangle r1 = new Rectangle(5, "Second");
-        Rectangle r2 = new Rectangle(4,3, "Third");
-
+        Rectangle r0 = new Rectangle(3,4, "First", true);
+        Rectangle.printRectanglesCount();
+        Rectangle r1 = new Rectangle(5, "Second", false );
+        Rectangle.printRectanglesCount();
+        Rectangle r2 = new Rectangle(4,3, "Third", true);
+        Rectangle.printRectanglesCount();
+        System.out.println();
 
         r0.rectangleParamsPrint();
+        r0.printClassName(r0.printInRussian);
+        System.out.println();
+
         r1.rectangleParamsPrint();
+        r1.printClassName(r1.printInRussian);
+        System.out.println();
+
         r2.rectangleParamsPrint();
+        r2.printClassName(r2.printInRussian);
+        System.out.println();
 
         r0.calculateArea();
         r1.calculateArea();
