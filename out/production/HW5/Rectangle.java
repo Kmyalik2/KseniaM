@@ -1,20 +1,27 @@
-import org.w3c.dom.css.Rect;
-
 public class Rectangle {
     double x;
     double y;
     String rectangleName;
 
-    public Rectangle (double x, double y, String rectangleName) {
+    private static int createdRectangles;
+    private final static String RUSSIAN_CLASS_NAME = "Прямоугольник";
+    private final static String ENGLISH_CLASS_NAME = "Rectangle";
+    public boolean printInRussian;
+
+    public Rectangle (double x, double y, String rectangleName, boolean printInRussian) {
         this.x = x;
         this.y = y;
         this.rectangleName = rectangleName;
+        this.printInRussian = printInRussian;
+        createdRectangles++;
     }
 
-    public Rectangle (double x, String rectangleName) {
+    public Rectangle (double x, String rectangleName, boolean printInRussian) {
         this.x = x;
         this.y = x;
         this.rectangleName = rectangleName;
+        this.printInRussian = printInRussian;
+        createdRectangles++;
     }
 
     public double calculateArea () {
@@ -38,5 +45,19 @@ public class Rectangle {
 
     public void rectangleParamsPrint () {
         System.out.println( this.rectangleName + ": x = " + this.x + "; y = " + this.y);
+    }
+
+    static void printRectanglesCount() {
+        if (createdRectangles == 1) {
+            System.out.println("There was " + createdRectangles + " rectangles created.");
+        }
+        else System.out.println("There were " + createdRectangles + " rectangles created.");
+    }
+
+    static void printClassName (boolean printInRussian) {
+        if (printInRussian) {
+            System.out.println(RUSSIAN_CLASS_NAME);
+        }
+        else System.out.println(ENGLISH_CLASS_NAME);
     }
 }
